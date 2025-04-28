@@ -1,6 +1,7 @@
 
-import { QuestionCard } from '@/components/QuestionCard'
-import { FilterIcon } from 'lucide-react'
+import { Filter } from '@/components/common/body/filter'
+import { TitleBody } from '@/components/common/body/title'
+import { QuestionCard } from '@/components/home/questioncard'
 export function HomePage() {
   // Sample data for questions
   const questions = [
@@ -68,29 +69,25 @@ export function HomePage() {
   ]
   return (
     <main className="flex-1">
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold text-gray-900">Tất cả câu hỏi</h1>
-        <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md font-medium">
-          Đặt câu hỏi
-        </button>
-      </div>
-      <div className="bg-white p-4 rounded-lg shadow mb-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div className="flex items-center gap-2">
-          <span className="text-gray-700">87,421 câu hỏi</span>
-        </div>
-        <div className="flex items-center gap-3 w-full sm:w-auto">
-          <button className="flex items-center gap-2 px-3 py-1.5 bg-gray-100 hover:bg-gray-200 rounded-md">
-            <FilterIcon className="h-4 w-4" />
-            <span className="text-sm">Bộ lọc</span>
-          </button>
-          <select className="border rounded-md px-3 py-1.5 bg-white text-sm flex-1 sm:flex-none">
-            <option>Mới nhất</option>
-            <option>Phổ biến nhất</option>
-            <option>Chưa trả lời</option>
-            <option>Nhiều câu trả lời nhất</option>
-          </select>
-        </div>
-      </div>
+      <TitleBody title='Tất cả câu hỏi' button={{ text:"Thêm câu hỏi" }}  />
+      <Filter count={3001}  nameCount='câu hỏi' filter='bộ lọc' option={[
+        {
+          key:1,
+          val:"Mới nhất"
+        },
+        {
+          key:2,
+          val:"Phổ biến nhất"
+        },
+        {
+          key:3,
+          val:"Chưa trả lời"
+        },
+        {
+          key:4,
+          val:"Nhiều câu trả lời nhất"
+        }
+      ]} />
       <div>
         {questions.map((question) => (
           <QuestionCard

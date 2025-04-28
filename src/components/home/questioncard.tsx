@@ -1,3 +1,4 @@
+import { QuestionCardProps } from '@/types/question'
 import {
   ArrowUpIcon,
   ArrowDownIcon,
@@ -5,19 +6,6 @@ import {
   EyeIcon,
 } from 'lucide-react'
 
-interface QuestionCardProps {
-  title: string
-  content: string
-  votes: number
-  answers: number
-  views: number
-  tags: string[]
-  author: {
-    name: string
-    avatar: string
-  }
-  time: string
-}
 export function QuestionCard({
   title,
   content,

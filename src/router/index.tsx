@@ -1,3 +1,4 @@
+import { PageCat } from "@/page/cat";
 import { HomePage } from "@/page/home";
 
 interface RouteObject {
@@ -7,13 +8,7 @@ interface RouteObject {
 
 const publicRoutes: RouteObject[] = [
     {path:'/', component: HomePage},
-    {path:'/hi',component:()=>{
-        return (
-            <>
-                <h1>Hi</h1>
-            </>
-        )
-    }}
+    {path:'/cat',component:PageCat},
 ]
 
   

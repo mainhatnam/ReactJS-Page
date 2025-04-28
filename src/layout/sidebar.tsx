@@ -18,7 +18,7 @@ function Sidebar() {
             <li>
               <Link
                 to="/"
-                className="flex items-center gap-3 px-3 py-2 text-blue-600 bg-blue-50 rounded-md font-medium"
+                className="flex items-center gap-3 px-3 py-2 text-blue-600 bg-blue-50 font-medium rounded-md"
               >
                 <HomeIcon className="h-5 w-5" />
                 <span>Trang chủ</span>
@@ -26,7 +26,7 @@ function Sidebar() {
             </li>
             <li>
               <Link
-                to="/hi"
+                to="/cat"
                 className="flex items-center gap-3 px-3 py-2 text-gray-700 hover:bg-gray-50 rounded-md"
               >
                 <LayersIcon className="h-5 w-5" />
