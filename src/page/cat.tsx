@@ -5,13 +5,11 @@ import { TitleBody } from '@/components/common/body/title'
 import { CatApi } from '@/types/cat';
 import { useEffect, useState } from 'react';
 
-
 export const PageCat = () => {
     const [cat, setCats] = useState<CatApi[]>([]);
     useEffect(() => {
         HomeApi(setCats)
         console.log("run useEffect");
-        
       }, []);
   return (
     <main className="flex-1">
