@@ -4,8 +4,8 @@
 name: Node.js CI React PAGE
 
 on:
-  push:
-    branches: [ "master" ]
+  # push:
+  #   branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
 
