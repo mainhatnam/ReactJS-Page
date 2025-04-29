@@ -27,5 +27,5 @@
     "noUncheckedSideEffectImports": true,
     "noImplicitAny": true,
   },
-  "include": ["src"]
+  "include": ["src", "vite-env.d.ts"]
 }
