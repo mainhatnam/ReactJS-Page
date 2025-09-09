@@ -1,15 +1,14 @@
-import { PageCat } from "@/page/cat";
-import { HomePage } from "@/page/home";
+import { RouteObject } from "@/types/route";
+import { clientRoutes } from "./client";
+import { cmsRoutes } from "./admin";
 
-interface RouteObject {
-    path:string,
-    component:React.FC
-}
 
-const publicRoutes: RouteObject[] = [
-    {path:'/', component: HomePage},
-    {path:'/cat',component:PageCat},
+
+const client: RouteObject[] = [
+    ...clientRoutes,
 ]
 
-  
-export {publicRoutes}
+const cms: RouteObject[] = [
+    ...cmsRoutes,
+]
+export {client, cms}
