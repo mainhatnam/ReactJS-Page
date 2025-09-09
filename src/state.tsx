@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import { IStateContext } from "./types/Context";
+import { IStateContext } from "./types/context";
 
 const StateContext = createContext<IStateContext>({} as IStateContext)
 const GlobalProvider = ({ children }:{children:React.JSX.Element}) => {

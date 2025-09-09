@@ -1,11 +1,12 @@
 import { BrowserRouter, Routes, Route } from "react-router";
-import { publicRoutes } from "@/router";
+import { client,cms } from "@/router";
 import MasterLayout from "@/master_layout/master_layout";
+import CmsMasterLayout from "./master_layout/cms/master_layout";
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {publicRoutes.map((item, key) => {
+        {client.map((item, key) => {
           return (
             <Route
               key={key}
@@ -14,6 +15,19 @@ function App() {
                 <MasterLayout>
                   <item.component />
                 </MasterLayout>
+              }/>
+          );
+        })}
+
+        {cms.map((item, key) => {
+          return (
+            <Route
+              key={key}
+              path={item.path}
+              element={
+                <CmsMasterLayout>
+                  <item.component />
+                </CmsMasterLayout>
               }/>
           );
         })}

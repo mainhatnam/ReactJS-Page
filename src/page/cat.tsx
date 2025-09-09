@@ -3,9 +3,9 @@ import { CatCard } from '@/components/cat/cardcat'
 import { Filter } from '@/components/common/body/filter'
 import { TitleBody } from '@/components/common/body/title'
 import { CatApi } from '@/types/cat';
-import { useEffect, useState } from 'react';
+import { JSX, useEffect, useState } from 'react';
 
-export const PageCat = () => {
+export const PageCat = () : JSX.Element => {
     const [cat, setCats] = useState<CatApi[]>([]);
     useEffect(() => {
         HomeApi(setCats)

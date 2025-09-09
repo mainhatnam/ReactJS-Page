@@ -2,7 +2,8 @@
 import { Filter } from '@/components/common/body/filter'
 import { TitleBody } from '@/components/common/body/title'
 import { QuestionCard } from '@/components/home/questioncard'
-export function HomePage() {
+import { JSX } from 'react'
+export function HomePage() :JSX.Element {
   // Sample data for questions
   const questions = [
     {
