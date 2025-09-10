@@ -1,9 +1,9 @@
 import axiosInstance from "@/config/axios";
-import { CatApi } from "@/types/cat"
+import { ResponseHomeApi } from "@/types/home";
 
-export const HomeApi  = async (setCats: React.Dispatch<React.SetStateAction<CatApi[]>>):Promise<void> => { 
-    const {data} = await axiosInstance.get<CatApi[]>(`/v1/images/search?limit=10`)
-    console.log(data);
-    
-    setCats(data)
+
+export const HomeGetApi  = async (page:number): Promise<ResponseHomeApi> => { 
+        const { data } = await axiosInstance.get<ResponseHomeApi>(`/v1/post/?page=${page}`);
+        console.log("Data:", data);
+        return data
 }

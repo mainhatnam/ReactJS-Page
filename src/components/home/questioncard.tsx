@@ -46,7 +46,7 @@ export function QuestionCard({
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <img
-                src={author.avatar}
+                src={author.img_user}
                 alt={author.name}
                 className="w-6 h-6 rounded-full object-cover"
               />

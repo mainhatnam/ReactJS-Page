@@ -1,4 +1,4 @@
-import { RouteObject } from "@/types/route";
+import { RouteObject } from "@/types/route_app";
 import { clientRoutes } from "./client";
 import { cmsRoutes } from "./admin";
 

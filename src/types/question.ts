@@ -7,7 +7,7 @@ export interface QuestionCardProps {
     tags: string[]
     author: {
       name: string
-      avatar: string
+      img_user: string
     }
     time: string
   }

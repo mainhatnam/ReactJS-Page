@@ -9,6 +9,10 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+  server: {
+      host: 'localhost',   // cho phép truy cập từ tất cả địa chỉ (LAN, IP)
+      port: 8000,
+    },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),

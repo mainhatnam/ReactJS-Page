@@ -1,6 +1,6 @@
 import { PageCat } from "@/page/cat"
 import { HomePage } from "@/page/home"
-import { RouteObject } from "@/types/route"
+import { RouteObject } from "@/types/route_app"
 
 
 const clientRoutes: RouteObject[] = [
