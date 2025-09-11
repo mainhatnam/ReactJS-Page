@@ -3,40 +3,33 @@ import { HomeGetApi } from '@/api/home'
 import { Filter } from '@/components/common/body/filter'
 import { TitleBody } from '@/components/common/body/title'
 import Loading from '@/components/common/loading'
+import Pagination from '@/components/common/pagination'
 import { QuestionCard } from '@/components/home/questioncard'
+import { FilterCat } from '@/constants/filter'
 import { useQuery } from '@tanstack/react-query'
-import { JSX } from 'react'
+import { JSX, useState } from 'react'
 import { useSearchParams } from 'react-router'
 export function HomePage() :JSX.Element {
   // Sample data for questions
-    const [searchParams] = useSearchParams()
-    let page : number = 1
-    page = Number(searchParams.get('page') ?? page) 
+    const [searchParams, setSearchParams] = useSearchParams()
+    const defaultPage = Number(searchParams.get('page') ?? 1) 
+    const [page,setPage] = useState<number>(defaultPage)
     const {data, isLoading} = useQuery({ queryKey: ['home',page], queryFn: () => HomeGetApi(page) })
+    
+    const pageCurent : number = data?.meta.page || 1
+    const lastPage : number = data?.meta.last_page || 1
+    
 
+    const handlerPage = (page: number) => {
+      setPage(page)
+      setSearchParams({ page: page.toString() })
+    }
     
   return (
     <main className="flex-1">
        {isLoading && <Loading />}
       <TitleBody title='Tất cả câu hỏi' button={{ text:"Thêm câu hỏi" }}  />
-      <Filter count={3001}  nameCount='câu hỏi' filter='bộ lọc' option={[
-        {
-          key:1,
-          val:"Mới nhất"
-        },
-        {
-          key:2,
-          val:"Phổ biến nhất"
-        },
-        {
-          key:3,
-          val:"Chưa trả lời"
-        },
-        {
-          key:4,
-          val:"Nhiều câu trả lời nhất"
-        }
-      ]} />
+      <Filter count={3001}  nameCount='câu hỏi' filter='bộ lọc' option={FilterCat} />
       <div>
         {data && data.meta.items?.map((question) => (
           <QuestionCard
@@ -52,29 +45,7 @@ export function HomePage() :JSX.Element {
           />
         ))}
       </div>
-      <div className="mt-6 flex justify-center">
-        <div className="flex items-center gap-2">
-          <button className="px-3 py-1 border rounded-md hover:bg-gray-50">
-            Trước
-          </button>
-          <button className="px-3 py-1 bg-blue-600 text-white rounded-md">
-            1
-          </button>
-          <button className="px-3 py-1 border rounded-md hover:bg-gray-50">
-            2
-          </button>
-          <button className="px-3 py-1 border rounded-md hover:bg-gray-50">
-            3
-          </button>
-          <span className="px-2">...</span>
-          <button className="px-3 py-1 border rounded-md hover:bg-gray-50">
-            12
-          </button>
-          <button className="px-3 py-1 border rounded-md hover:bg-gray-50">
-            Tiếp
-          </button>
-        </div>
-      </div>
+      <Pagination currentPage={pageCurent} displayNumber={3} lastPage={lastPage} onPageChange={handlerPage} ></Pagination>
     </main>
   )
 }
